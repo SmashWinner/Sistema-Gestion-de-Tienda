@@ -1,6 +1,7 @@
 package Productos;
+import Utils.Colors;
 
-public class Producto {
+public class Producto implements Colors{ // Clase Producto implementa la interfaz Colors
 
     private String nombre; // Atributos
     private float precio;
@@ -26,12 +27,14 @@ public class Producto {
 
     public void vender(int cantidad){ // Metodo para vender
         this.cantidad -= cantidad; 
-        System.out.println("Se han vendido " + cantidad + " unidades de " + this.nombre);
+        System.out.println(PURPLE + "Se han vendido " + cantidad + " unidades de " + this.nombre + RESET);
+        System.out.println(PURPLE + "Quedan " + this.cantidad + " unidades de " + this.nombre + RESET);
     }
 
     public void Reabastecer(int cantidad){ // Metodo para reabastecer
         this.cantidad += cantidad;
-        System.out.println("Se han reabastecido " + cantidad + " unidades de " + this.nombre);
+        System.out.println(PURPLE + "Se han reabastecido " + cantidad + " unidades de " + this.nombre + RESET);
+        System.out.println(PURPLE + "Ahora hay " + this.cantidad + " unidades de " + this.nombre + RESET);
     }
 
 }
