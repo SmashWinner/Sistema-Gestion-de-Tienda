@@ -12,21 +12,18 @@ public class Main implements Colors{
         Scanner sc = new Scanner(System.in);
         // Prouctos en la tienda
         Tienda tienda = new Tienda();
+
+        Main main = new Main();
+
         //Agregar productos
-        tienda.agregarProducto(new Producto("Papitas", 20.5f, 10, "50g"));
-        tienda.agregarProducto(new Producto("Galletas", 15.5f, 20, "100g"));
-        tienda.agregarProducto(new Producto("Refresco", 10.5f, 30, "500ml"));
+        main.agregarProducto(tienda);
+        
         
         System.out.println(YELLOW +"Bienvenido a la tienda Smash, Que decea realizar?"+ RESET);
         do{
-        System.out.println(CYAN + "----------------------" + GREEN +"Menu" + CYAN + "------------------------" + RESET);
-        System.out.println(CYAN + "1. Mostrar los productos disponibles");
-        System.out.println(CYAN + "2. Ver informacion de un producto");
-        System.out.println(CYAN + "3. Agregar un nuevo producto");
-        System.out.println(CYAN + "4. Vender un producto (disminuir stock)");
-        System.out.println(CYAN + "5. Reabastecer un producto (aumentar stock)");
-        System.out.println(RED + "6. Salir" + RESET);
-        System.out.println(CYAN + "--------------------------------------------------" + RESET);
+        //MOSTRAR MENU
+        main.menu();
+
         int opcion = sc.nextInt();
         switch (opcion) {
             case 1:
@@ -92,5 +89,22 @@ public class Main implements Colors{
         }
         }while(salir);
         sc.close();
+    }
+
+    void agregarProducto(Tienda tienda){
+        tienda.agregarProducto(new Producto("Papitas", 20.5f, 10, "50g"));
+        tienda.agregarProducto(new Producto("Galletas", 15.5f, 20, "100g"));
+        tienda.agregarProducto(new Producto("Refresco", 10.5f, 30, "500ml"));
+    }
+
+    void menu(){
+        System.out.println(CYAN + "----------------------" + GREEN +"Menu" + CYAN + "------------------------" + RESET);
+        System.out.println(CYAN + "1. Mostrar los productos disponibles");
+        System.out.println(CYAN + "2. Ver informacion de un producto");
+        System.out.println(CYAN + "3. Agregar un nuevo producto");
+        System.out.println(CYAN + "4. Vender un producto (disminuir stock)");
+        System.out.println(CYAN + "5. Reabastecer un producto (aumentar stock)");
+        System.out.println(RED + "6. Salir" + RESET);
+        System.out.println(CYAN + "--------------------------------------------------" + RESET);
     }
 }
